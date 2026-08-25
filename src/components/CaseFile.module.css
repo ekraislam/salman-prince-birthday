@@ -32,19 +32,20 @@
 
 .detailLabel {
   font-family: var(--font-bangla-body);
-  font-size: 0.8rem;
+  font-size: clamp(0.85rem, 2.2vw, 0.95rem);
   font-weight: 600;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  color: var(--color-gold);
   min-width: 170px;
   flex-shrink: 0;
 }
 
 .detailValue {
   font-family: var(--font-bangla-body);
-  font-size: clamp(0.92rem, 2.5vw, 1.05rem);
-  font-weight: 500;
-  color: var(--color-text-primary);
+  font-size: clamp(1rem, 2.8vw, 1.15rem);
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.02em;
 }
 
 .caseNum {

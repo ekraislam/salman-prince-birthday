@@ -218,17 +218,18 @@
 }
 
 .fieldLabel {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.18em;
-  color: var(--color-text-muted);
+  font-family: var(--font-bangla-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-gold);
 }
 
 .fieldValue {
   font-family: var(--font-bangla-body);
-  font-size: clamp(0.88rem, 2.5vw, 1rem);
-  font-weight: 500;
-  color: var(--color-text-primary);
+  font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+  font-weight: 600;
+  color: #ffffff;
   line-height: 1.5;
 }
 

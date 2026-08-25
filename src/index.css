@@ -20,11 +20,11 @@
   --color-border-gold-bright: rgba(201, 162, 39, 0.6);
 
   /* Text */
-  --color-text-primary: #f0f0f5;
-  --color-text-secondary: rgba(240, 240, 245, 0.6);
-  --color-text-muted: rgba(240, 240, 245, 0.35);
-  --color-text-gold: #c9a227;
-  --color-text-gold-light: #e8c84a;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #d8d8e6;
+  --color-text-muted: #9e9eb4;
+  --color-text-gold: #e8c84a;
+  --color-text-gold-light: #f5d77f;
 
   /* Accent */
   --color-gold: #c9a227;
