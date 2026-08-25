@@ -1,0 +1,79 @@
+.terminalSection {
+  min-height: 80vh;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 32px;
+}
+
+.termCmd {
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 2vw, 0.82rem);
+  line-height: 1.6;
+  word-break: break-all;
+}
+
+.prompt {
+  color: var(--color-green-terminal);
+  opacity: 0.6;
+}
+
+.cmd {
+  color: var(--color-text-primary);
+}
+
+.lineBase {
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 2vw, 0.82rem);
+  line-height: 1.8;
+  animation: fadeInLine 0.15s ease forwards;
+}
+
+@keyframes fadeInLine {
+  from { opacity: 0; transform: translateX(-4px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.lineTextPass {
+  color: var(--color-green-terminal);
+}
+
+.lineTextCritical {
+  color: #fbbf24;
+  font-weight: 700;
+  text-shadow: 0 0 12px rgba(251,191,36,0.4);
+}
+
+.lineTextRed {
+  color: var(--color-red-alert);
+  font-weight: 700;
+}
+
+.lineTextGold {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.progressLine {
+  color: var(--color-green-terminal);
+  letter-spacing: 0.02em;
+}
+
+.pct {
+  color: var(--color-gold);
+  margin-left: 8px;
+}
+
+.cursor {
+  color: var(--color-green-terminal);
+  animation: blink-cursor 0.9s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}

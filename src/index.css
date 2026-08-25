@@ -1,0 +1,327 @@
+/* ============================================================
+   GLOBAL CSS — Salman Prince Birthday Experience
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Color System */
+  --color-void: #050507;
+  --color-surface: #0a0a0f;
+  --color-surface-2: #111118;
+  --color-surface-3: #18181f;
+  --color-surface-4: #1e1e28;
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-gold: rgba(201, 162, 39, 0.3);
+  --color-border-gold-bright: rgba(201, 162, 39, 0.6);
+
+  /* Text */
+  --color-text-primary: #f0f0f5;
+  --color-text-secondary: rgba(240, 240, 245, 0.6);
+  --color-text-muted: rgba(240, 240, 245, 0.35);
+  --color-text-gold: #c9a227;
+  --color-text-gold-light: #e8c84a;
+
+  /* Accent */
+  --color-gold: #c9a227;
+  --color-gold-light: #e8c84a;
+  --color-gold-dim: rgba(201, 162, 39, 0.15);
+  --color-navy: #0f1629;
+  --color-navy-light: #162040;
+  --color-green-terminal: #4ade80;
+  --color-red-alert: #f87171;
+
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #c9a227 0%, #e8c84a 50%, #c9a227 100%);
+  --gradient-surface: linear-gradient(135deg, #111118 0%, #0a0a14 100%);
+  --gradient-navy: linear-gradient(135deg, #0f1629 0%, #162040 100%);
+
+  /* Shadows */
+  --shadow-gold: 0 0 30px rgba(201, 162, 39, 0.15), 0 0 60px rgba(201, 162, 39, 0.05);
+  --shadow-gold-intense: 0 0 20px rgba(201, 162, 39, 0.4), 0 0 60px rgba(201, 162, 39, 0.2);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255,255,255,0.04) inset;
+
+  /* Typography */
+  --font-ui: 'Inter', 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-mono: 'Space Grotesk', 'Courier New', monospace;
+  --font-bangla: 'Noto Serif Bengali', 'Hind Siliguri', 'SolaimanLipi', serif;
+  --font-bangla-body: 'Hind Siliguri', 'Noto Serif Bengali', sans-serif;
+
+  /* Spacing */
+  --section-padding: clamp(60px, 10vw, 120px) clamp(16px, 5vw, 80px);
+  --max-width: 860px;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-ui);
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 2px;
+}
+
+/* Selection */
+::selection {
+  background: rgba(201, 162, 39, 0.2);
+  color: var(--color-gold-light);
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ============================================================
+   UTILITY CLASSES
+   ============================================================ */
+
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 clamp(16px, 5vw, 40px);
+}
+
+.gold-text {
+  color: var(--color-text-gold);
+}
+
+.gold-text-light {
+  color: var(--color-text-gold-light);
+}
+
+.muted {
+  color: var(--color-text-secondary);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-gold), transparent);
+  margin: 2rem 0;
+}
+
+.divider-full {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.5), transparent);
+  width: 100%;
+}
+
+/* Glass Card */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  border-color: var(--color-border-gold);
+  box-shadow: var(--shadow-gold), var(--shadow-card);
+}
+
+/* Gold Button */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: transparent;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-gold-dim);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.btn-gold:hover::before {
+  transform: scaleX(1);
+}
+
+.btn-gold:hover {
+  color: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+  box-shadow: var(--shadow-gold-intense);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 36px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.25s ease;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--color-text-primary);
+}
+
+/* Terminal */
+.terminal {
+  background: #090910;
+  border: 1px solid rgba(74, 222, 128, 0.15);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(74, 222, 128, 0.05);
+}
+
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.terminal-dot.red { background: #ff5f57; }
+.terminal-dot.yellow { background: #febc2e; }
+.terminal-dot.green { background: #28c840; }
+
+.terminal-title {
+  flex: 1;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  font-family: var(--font-mono);
+}
+
+.terminal-body {
+  padding: 24px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.8;
+  color: var(--color-green-terminal);
+}
+
+.terminal-prompt {
+  color: rgba(74, 222, 128, 0.5);
+  margin-right: 4px;
+}
+
+/* Particles background */
+.particles-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Section wrapper */
+.section {
+  padding: var(--section-padding);
+  position: relative;
+  z-index: 1;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn-gold,
+  .btn-ghost {
+    padding: 12px 24px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

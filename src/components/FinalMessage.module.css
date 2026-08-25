@@ -1,0 +1,179 @@
+.finalSection {
+  min-height: 80vh;
+  padding-bottom: 80px !important;
+}
+
+/* Crown */
+.crownWrapper {
+  text-align: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.crownBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.crownBtn:hover {
+  transform: scale(1.1);
+}
+
+.crownBtn:active {
+  transform: scale(0.95);
+}
+
+.crownIcon {
+  color: var(--color-gold);
+  filter: drop-shadow(0 0 16px rgba(201,162,39,0.4));
+  transition: filter 0.2s ease;
+}
+
+.crownBtn:hover .crownIcon {
+  filter: drop-shadow(0 0 28px rgba(201,162,39,0.7));
+}
+
+.crownHint {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.12em;
+  margin-top: 8px;
+}
+
+/* Prince mode Easter egg */
+.princeModeCard {
+  background: rgba(201, 162, 39, 0.07);
+  border: 1px solid var(--color-border-gold-bright);
+  border-radius: 10px;
+  padding: 20px 28px;
+  text-align: center;
+  max-width: 380px;
+  margin: 0 auto 32px;
+  box-shadow: 0 0 30px rgba(201,162,39,0.1);
+}
+
+.pmTitle {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.pmText {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 4px;
+}
+
+.pmSub {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* Title */
+.titleWrapper {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.sectionLabel {
+  font-family: var(--font-bangla-body);
+  font-size: clamp(0.85rem, 2.2vw, 1rem);
+  letter-spacing: 0.08em;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+/* Final card */
+.finalCard {
+  padding: clamp(32px, 7vw, 60px) clamp(24px, 6vw, 52px);
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+  transition: border-color 0.5s ease, box-shadow 0.5s ease;
+}
+
+.finalCardGold {
+  border-color: var(--color-border-gold-bright) !important;
+  box-shadow: 0 0 40px rgba(201,162,39,0.12), var(--shadow-card) !important;
+}
+
+.salutation {
+  font-family: var(--font-bangla);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.25), transparent);
+  margin: 20px 0;
+}
+
+.para {
+  font-family: var(--font-bangla-body);
+  font-size: clamp(1rem, 2.6vw, 1.15rem);
+  line-height: 2.1;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.goldWord {
+  color: var(--color-gold);
+  font-weight: 700;
+}
+
+.signatureLine {
+  font-family: var(--font-bangla);
+  font-size: clamp(1.2rem, 3.5vw, 1.7rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.footerText {
+  font-family: var(--font-mono);
+  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+}
+
+.footerSub {
+  font-family: var(--font-bangla-body);
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.footerYear {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  color: rgba(201,162,39,0.3);
+}

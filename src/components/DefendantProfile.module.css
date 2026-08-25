@@ -1,0 +1,329 @@
+.section {
+  min-height: 80vh;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 40px;
+}
+
+.profileLayout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* ============ Photo ============ */
+.photoSection {}
+
+.photoFrame {
+  position: relative;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(201,162,39,0.06), 0 4px 30px rgba(0,0,0,0.6);
+  margin-bottom: 12px;
+}
+
+/* Gold corner brackets */
+.photoCornerTL,
+.photoCornerTR,
+.photoCornerBL,
+.photoCornerBR {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  z-index: 2;
+}
+
+.photoCornerTL {
+  top: 8px; left: 8px;
+  border-top: 2px solid var(--color-gold);
+  border-left: 2px solid var(--color-gold);
+}
+.photoCornerTR {
+  top: 8px; right: 8px;
+  border-top: 2px solid var(--color-gold);
+  border-right: 2px solid var(--color-gold);
+}
+.photoCornerBL {
+  bottom: 48px; left: 8px;
+  border-bottom: 2px solid var(--color-gold);
+  border-left: 2px solid var(--color-gold);
+}
+.photoCornerBR {
+  bottom: 48px; right: 8px;
+  border-bottom: 2px solid var(--color-gold);
+  border-right: 2px solid var(--color-gold);
+}
+
+.photoGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(201,162,39,0.04) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.headerBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background: rgba(201,162,39,0.06);
+  border-bottom: 1px solid rgba(201,162,39,0.12);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--color-gold);
+  position: relative;
+  z-index: 2;
+}
+
+.photo {
+  width: 100%;
+  display: block;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: top center;
+  filter: contrast(1.05) saturate(0.9);
+  transition: filter 0.4s ease;
+}
+
+.photoFrame:hover .photo {
+  filter: contrast(1.08) saturate(1);
+}
+
+.photoFooter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: rgba(0,0,0,0.4);
+  border-top: 1px solid rgba(201,162,39,0.1);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  position: relative;
+  z-index: 2;
+}
+
+.fingerprintIcon {
+  color: var(--color-gold);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.photoBadge {
+  margin-left: auto;
+  background: rgba(201,162,39,0.1);
+  border: 1px solid rgba(201,162,39,0.2);
+  color: var(--color-gold);
+  font-size: 0.55rem;
+  padding: 2px 6px;
+  border-radius: 2px;
+  letter-spacing: 0.12em;
+}
+
+/* Thumbnails */
+.thumbnails {
+  display: flex;
+  gap: 8px;
+}
+
+.thumb {
+  flex: 1;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+  background: none;
+  padding: 0;
+}
+
+.thumb:hover {
+  transform: translateY(-2px);
+  border-color: rgba(201,162,39,0.3);
+}
+
+.thumbActive {
+  border-color: var(--color-gold) !important;
+  box-shadow: 0 0 10px rgba(201,162,39,0.2);
+}
+
+.thumbImg {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  filter: grayscale(0.2);
+  transition: filter 0.2s ease;
+}
+
+.thumbActive .thumbImg {
+  filter: none;
+}
+
+/* ============ Details ============ */
+.detailsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profileCard {
+  padding: clamp(20px, 4vw, 32px);
+}
+
+.profileCardHeader {
+  margin-bottom: 12px;
+}
+
+.profileCardTitle {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  color: var(--color-gold);
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+.profileCardSub {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+}
+
+.profileDivider {
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-border-gold), transparent);
+  margin: 12px 0;
+}
+
+.profileField {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.fieldLabel {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  color: var(--color-text-muted);
+}
+
+.fieldValue {
+  font-family: var(--font-bangla-body);
+  font-size: clamp(0.88rem, 2.5vw, 1rem);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+.fieldHighlight {
+  color: var(--color-gold) !important;
+  font-weight: 700;
+  font-size: clamp(1rem, 3vw, 1.2rem) !important;
+  letter-spacing: 0.08em;
+}
+
+/* Lawyer badge */
+.lawyerBadge {
+  margin-top: 4px;
+}
+
+.badgeGold {
+  background: rgba(201,162,39,0.06);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 8px;
+  padding: 12px 16px;
+  text-align: center;
+}
+
+.badgeTitle {
+  font-family: var(--font-bangla-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 2px;
+  line-height: 1.5;
+}
+
+.badgeText {
+  font-family: var(--font-bangla-body);
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Barcode */
+.barcode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.barcode > div:first-child {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 36px;
+}
+
+.barcodeBar {
+  width: 2px;
+  background: rgba(201,162,39,0.25);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.barcodeText {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+}
+
+/* Barcode bars container fix */
+.barcode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 12px;
+  background: rgba(255,255,255,0.015);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 8px;
+}
+
+.barcodeInner {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 40px;
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 768px) {
+  .profileLayout {
+    grid-template-columns: 1fr;
+  }
+  .photoFrame {
+    max-width: 380px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

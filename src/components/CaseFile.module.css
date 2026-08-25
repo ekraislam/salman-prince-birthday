@@ -1,0 +1,206 @@
+.caseSection {
+  min-height: 100vh;
+  padding-top: 100px;
+}
+
+.header {
+  margin-bottom: 32px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 8vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  color: var(--color-text-primary);
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+.caseDetails {
+  padding: clamp(24px, 5vw, 40px);
+  margin-bottom: 16px;
+}
+
+.detailRow {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(12px, 3vw, 24px);
+  padding: 12px 0;
+  flex-wrap: wrap;
+}
+
+.detailLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-text-muted);
+  min-width: 150px;
+  flex-shrink: 0;
+}
+
+.detailValue {
+  font-family: var(--font-ui);
+  font-size: clamp(0.85rem, 2.5vw, 1rem);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.caseNum {
+  font-family: var(--font-mono);
+  color: var(--color-gold);
+  cursor: pointer;
+  transition: color 0.2s, text-shadow 0.2s;
+  letter-spacing: 0.1em;
+}
+
+.caseNum:hover {
+  color: var(--color-gold-light);
+  text-shadow: 0 0 12px rgba(201,162,39,0.4);
+}
+
+.defendant {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem) !important;
+  font-weight: 700;
+  color: var(--color-gold) !important;
+  letter-spacing: 0.05em;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #f59e0b;
+  letter-spacing: 0.1em;
+}
+
+.statusDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.separator {
+  height: 1px;
+  background: var(--color-border);
+  margin: 4px 0;
+}
+
+.cursor {
+  animation: blink 0.8s step-end infinite;
+}
+
+/* Easter egg */
+.easterEgg {
+  background: rgba(201, 162, 39, 0.06);
+  border: 1px solid var(--color-border-gold);
+  border-radius: 8px;
+  padding: 16px 24px;
+  margin-bottom: 16px;
+  text-align: center;
+  pointer-events: none;
+}
+
+.easterTitle {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: 4px;
+}
+
+.easterText {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+/* Evidence */
+.evidenceHeading {
+  margin: 48px 0 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.evidenceTitle {
+  font-family: var(--font-mono);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.evidenceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.evidenceCard {
+  padding: clamp(20px, 4vw, 32px);
+  position: relative;
+  overflow: hidden;
+}
+
+.evidenceNum {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--color-gold);
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.evidenceCardTitle {
+  font-family: var(--font-bangla-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+}
+
+.evidenceCardText {
+  font-family: var(--font-bangla-body);
+  font-size: clamp(0.92rem, 2.5vw, 1.02rem);
+  line-height: 2;
+  color: var(--color-text-primary);
+  font-weight: 400;
+}
+
+.evidenceStamp {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.22em;
+  color: rgba(74, 222, 128, 0.3);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .detailLabel {
+    min-width: 100px;
+    font-size: 0.6rem;
+  }
+}

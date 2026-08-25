@@ -1,0 +1,102 @@
+.birthdaySection {
+  min-height: 80vh;
+}
+
+.caseClosed {
+  text-align: center;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.caseClosedText {
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  letter-spacing: 0.3em;
+  color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.caseClosedSub {
+  font-family: var(--font-ui);
+  font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+  color: var(--color-text-secondary);
+  font-style: italic;
+}
+
+/* Birthday Title */
+.birthdayTitle {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.cakeEmoji {
+  display: block;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.happyBirthday {
+  font-family: var(--font-bangla-body);
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.name {
+  font-family: var(--font-bangla);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #c9a227 0%, #e8c84a 40%, #c9a227 80%, #a07818 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+/* Message */
+.messageCard {
+  padding: clamp(28px, 6vw, 52px);
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.messageLine {
+  font-family: var(--font-bangla-body);
+  font-size: clamp(1.05rem, 2.8vw, 1.2rem);
+  line-height: 2.1;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.highlight {
+  color: var(--color-text-primary);
+  font-weight: 600;
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-gold), transparent);
+  margin: 20px 0;
+}
+
+.signOff {
+  font-family: var(--font-bangla);
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-top: 8px;
+  line-height: 1.5;
+}

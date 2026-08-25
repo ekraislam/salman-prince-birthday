@@ -1,0 +1,150 @@
+.verdictSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.glowBg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(201,162,39,0.08) 0%, transparent 65%);
+  pointer-events: none;
+  animation: expand-pulse 3s ease-in-out infinite;
+}
+
+@keyframes expand-pulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+.verdictCard {
+  position: relative;
+  text-align: center;
+  padding: clamp(40px, 8vw, 80px) clamp(24px, 5vw, 60px);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(201,162,39,0.2);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow:
+    0 0 60px rgba(201,162,39,0.08),
+    0 4px 40px rgba(0,0,0,0.6),
+    0 1px 0 rgba(255,255,255,0.04) inset;
+  overflow: hidden;
+}
+
+.rule {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201,162,39,0.5), transparent);
+  margin: 16px 0;
+}
+
+.labelText {
+  font-family: var(--font-mono);
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+  letter-spacing: 0.4em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.defendantName {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3.5vw, 1.6rem);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: rgba(240,240,245,0.7);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+/* GUILTY */
+.guiltyWrapper {
+  position: relative;
+  display: inline-block;
+  margin: 8px 0;
+}
+
+.guiltyGlow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(201,162,39,0.15) 0%, transparent 70%);
+  pointer-events: none;
+  animation: guilty-pulse 2s ease-in-out infinite;
+}
+
+@keyframes guilty-pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.guilty {
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 15vw, 9rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #a07818 0%, #c9a227 30%, #e8c84a 50%, #c9a227 70%, #a07818 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+  filter: drop-shadow(0 0 30px rgba(201,162,39,0.3));
+}
+
+.ofText {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  color: rgba(240,240,245,0.5);
+  margin-top: 8px;
+}
+
+.awesomeText {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: 0.15em;
+  margin-bottom: 16px;
+}
+
+/* Verdict stamp */
+.verdictStamp {
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  font-family: var(--font-mono);
+  font-size: clamp(0.6rem, 1.5vw, 0.72rem);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: rgba(201,162,39,0.35);
+  border: 2px solid rgba(201,162,39,0.25);
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+.signed {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  margin-top: 8px;
+}
+
+@media (max-width: 480px) {
+  .guilty {
+    font-size: clamp(3.5rem, 18vw, 5rem);
+  }
+  .verdictStamp {
+    bottom: 12px;
+    right: 12px;
+  }
+}
