@@ -165,12 +165,24 @@
   margin-top: 8px;
 }
 
-.judgeSignature {}
+.judgeSignature {
+  display: flex;
+  flex-direction: column;
+}
+
+.stylishSig {
+  font-family: 'Great Vibes', 'Alex Brush', cursive;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  color: var(--color-gold-light);
+  line-height: 1;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 0 10px rgba(201, 162, 39, 0.4));
+}
 
 .signatureLine {
-  width: 160px;
+  width: 180px;
   height: 1px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(201, 162, 39, 0.5);
   margin-bottom: 8px;
 }
 

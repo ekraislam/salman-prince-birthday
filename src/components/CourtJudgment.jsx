@@ -104,9 +104,10 @@ export default function CourtJudgment() {
           {/* Judgment footer */}
           <div className={styles.judgmentFooter}>
             <div className={styles.judgeSignature}>
+              <p className={styles.stylishSig}>Ekra Islam Ohi</p>
               <div className={styles.signatureLine} />
-              <p className={styles.judgeTitle}>THE HONOURABLE JUDGE</p>
-              <p className={styles.judgeNote}>Birthday Division — 2026</p>
+              <p className={styles.judgeTitle}>EKRA ISLAM OHI • CHIEF JUSTICE</p>
+              <p className={styles.judgeNote}>Elder Brother & Chief Presiding Judge</p>
             </div>
             <div className={styles.officialSeal}>
               <div className={styles.sealCircle}>
