@@ -2,12 +2,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import styles from './IntroScreen.module.css';
 
-export default function IntroScreen({ onEnter }) {
+export default function IntroScreen({ onEnter, playGavelStrike }) {
   const [clicked, setClicked] = useState(false);
 
   const handleClick = () => {
+    if (playGavelStrike) playGavelStrike(0, true);
     setClicked(true);
-    setTimeout(onEnter, 800);
+    setTimeout(onEnter, 700);
   };
 
   return (

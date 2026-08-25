@@ -181,6 +181,30 @@
   font-style: italic;
 }
 
+.verdictActionBtn {
+  gap: 10px;
+}
+
+/* Cinematic screen shake */
+.screenShake {
+  animation: shake 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-2px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(4px, -2px, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-6px, 3px, 0);
+  }
+  40%, 60% {
+    transform: translate3d(6px, -3px, 0);
+  }
+}
+
 @media (max-width: 480px) {
   .sessionText {
     font-size: 0.55rem;

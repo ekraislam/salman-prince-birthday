@@ -139,6 +139,27 @@
   margin-top: 8px;
 }
 
+.actionButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.certBtn {
+  gap: 8px;
+  font-family: var(--font-bangla-body) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+}
+
+.shareBtn {
+  gap: 8px;
+  font-family: var(--font-bangla-body) !important;
+  letter-spacing: 0.05em !important;
+}
+
 @media (max-width: 480px) {
   .guilty {
     font-size: clamp(3.5rem, 18vw, 5rem);

@@ -6,8 +6,93 @@ export function useSound() {
   const oscillatorsRef = useRef([]);
   const gainRef = useRef(null);
 
+  // Initialize or get AudioContext
+  const getAudioContext = useCallback(() => {
+    if (!audioContextRef.current) {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) {
+        audioContextRef.current = new AudioCtx();
+      }
+    }
+    if (audioContextRef.current && audioContextRef.current.state === 'suspended') {
+      audioContextRef.current.resume();
+    }
+    return audioContextRef.current;
+  }, []);
+
+  // Wooden Courtroom Gavel Strike Synthesizer using Web Audio API
+  const playGavelStrike = useCallback((timeOffset = 0, isHeavy = false) => {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
+    const t = ctx.currentTime + timeOffset;
+
+    // 1. Strike transient (woody click)
+    const clickOsc = ctx.createOscillator();
+    const clickGain = ctx.createGain();
+    clickOsc.type = 'triangle';
+    clickOsc.frequency.setValueAtTime(isHeavy ? 180 : 220, t);
+    clickOsc.frequency.exponentialRampToValueAtTime(40, t + 0.08);
+
+    clickGain.gain.setValueAtTime(isHeavy ? 0.9 : 0.6, t);
+    clickGain.gain.exponentialRampToValueAtTime(0.001, t + 0.09);
+
+    clickOsc.connect(clickGain);
+    clickGain.connect(ctx.destination);
+    clickOsc.start(t);
+    clickOsc.stop(t + 0.1);
+
+    // 2. Heavy wood resonance thud
+    const thudOsc = ctx.createOscillator();
+    const thudGain = ctx.createGain();
+    thudOsc.type = 'sine';
+    thudOsc.frequency.setValueAtTime(isHeavy ? 95 : 120, t);
+    thudOsc.frequency.exponentialRampToValueAtTime(30, t + 0.25);
+
+    thudGain.gain.setValueAtTime(isHeavy ? 0.8 : 0.5, t);
+    thudGain.gain.exponentialRampToValueAtTime(0.001, t + 0.3);
+
+    thudOsc.connect(thudGain);
+    thudGain.connect(ctx.destination);
+    thudOsc.start(t);
+    thudOsc.stop(t + 0.35);
+
+    // 3. Wood desk reverb body (Noise burst)
+    const bufferSize = ctx.sampleRate * 0.12;
+    const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+    const output = noiseBuffer.getChannelData(0);
+    for (let i = 0; i < bufferSize; i++) {
+      output[i] = Math.random() * 2 - 1;
+    }
+
+    const whiteNoise = ctx.createBufferSource();
+    whiteNoise.buffer = noiseBuffer;
+
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.setValueAtTime(isHeavy ? 450 : 600, t);
+
+    const noiseGain = ctx.createGain();
+    noiseGain.gain.setValueAtTime(isHeavy ? 0.4 : 0.25, t);
+    noiseGain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
+
+    whiteNoise.connect(filter);
+    filter.connect(noiseGain);
+    noiseGain.connect(ctx.destination);
+
+    whiteNoise.start(t);
+    whiteNoise.stop(t + 0.15);
+  }, [getAudioContext]);
+
+  // Triple Courtroom Gavel Strike ("Order in the Court!")
+  const playTripleGavel = useCallback(() => {
+    playGavelStrike(0.0, false);
+    playGavelStrike(0.28, false);
+    playGavelStrike(0.58, true);
+  }, [playGavelStrike]);
+
+  // Ambient celebration background music/tones
   const createCelebrationSound = useCallback((ctx) => {
-    // Create a subtle, looping ambient celebration sound using Web Audio API
     const masterGain = ctx.createGain();
     masterGain.gain.setValueAtTime(0, ctx.currentTime);
     masterGain.gain.linearRampToValueAtTime(0.08, ctx.currentTime + 1.5);
@@ -45,7 +130,6 @@ export function useSound() {
     shimmer.connect(shimmerGain);
     shimmerGain.connect(masterGain);
 
-    // LFO for shimmer tremolo
     const lfo = ctx.createOscillator();
     lfo.type = 'sine';
     lfo.frequency.value = 0.4;
@@ -59,27 +143,19 @@ export function useSound() {
   }, []);
 
   const toggleSound = useCallback(() => {
+    const ctx = getAudioContext();
+    if (!ctx) return;
+
     if (!enabled) {
-      // Enable sound
-      if (!audioContextRef.current) {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        audioContextRef.current = ctx;
-        createCelebrationSound(ctx);
-      } else {
-        audioContextRef.current.resume();
-        if (gainRef.current) {
-          gainRef.current.gain.linearRampToValueAtTime(0.08, audioContextRef.current.currentTime + 0.5);
-        }
-      }
+      createCelebrationSound(ctx);
       setEnabled(true);
     } else {
-      // Disable sound
-      if (gainRef.current && audioContextRef.current) {
-        gainRef.current.gain.linearRampToValueAtTime(0, audioContextRef.current.currentTime + 0.5);
+      if (gainRef.current) {
+        gainRef.current.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.5);
       }
       setEnabled(false);
     }
-  }, [enabled, createCelebrationSound]);
+  }, [enabled, createCelebrationSound, getAudioContext]);
 
   useEffect(() => {
     return () => {
@@ -87,10 +163,10 @@ export function useSound() {
         try { osc.stop(); } catch {}
       });
       if (audioContextRef.current) {
-        audioContextRef.current.close();
+        try { audioContextRef.current.close(); } catch {}
       }
     };
   }, []);
 
-  return { enabled, toggleSound };
+  return { enabled, toggleSound, playGavelStrike, playTripleGavel };
 }

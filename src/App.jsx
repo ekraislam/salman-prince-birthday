@@ -13,12 +13,13 @@ import Timeline from './components/Timeline';
 import FinalMessage from './components/FinalMessage';
 import Navigation from './components/Navigation';
 import ParticlesBackground from './components/ParticlesBackground';
+import GoldCursorTrail from './components/GoldCursorTrail';
 import { useSound } from './hooks/useSound';
 
 export default function App() {
   const [introComplete, setIntroComplete] = useState(false);
   const [verdictRevealed, setVerdictRevealed] = useState(false);
-  const { enabled: soundEnabled, toggleSound } = useSound();
+  const { enabled: soundEnabled, toggleSound, playGavelStrike, playTripleGavel } = useSound();
   const verdictRef = useRef(null);
 
   const handleIntroComplete = useCallback(() => {
@@ -35,13 +36,19 @@ export default function App() {
 
   return (
     <>
-      {/* Ambient particles */}
+      {/* Ambient background particles */}
       <ParticlesBackground />
+
+      {/* Feature 5: Interactive Gold Cursor & Touch Dust Trail */}
+      <GoldCursorTrail />
 
       {/* Intro overlay */}
       <AnimatePresence>
         {!introComplete && (
-          <IntroScreen onEnter={handleIntroComplete} />
+          <IntroScreen
+            onEnter={handleIntroComplete}
+            playGavelStrike={playGavelStrike}
+          />
         )}
       </AnimatePresence>
 
@@ -56,17 +63,23 @@ export default function App() {
             {/* Floating nav */}
             <Navigation soundEnabled={soundEnabled} onToggleSound={toggleSound} />
 
-            {/* Case file + sworn testimonies */}
+            {/* Case file + Stats metrics */}
             <CaseFile />
+
+            {/* Sworn testimonies */}
             <Testimonies />
 
             {/* Defendant Photo Profile */}
             <DefendantProfile />
 
-            {/* Courtroom */}
-            <Courtroom onVerdictAccepted={handleVerdictAccepted} />
+            {/* Feature 1: Courtroom with Gavel audio & Screen shake */}
+            <Courtroom
+              onVerdictAccepted={handleVerdictAccepted}
+              playGavelStrike={playGavelStrike}
+              playTripleGavel={playTripleGavel}
+            />
 
-            {/* Verdict — revealed on button click */}
+            {/* Verdict with Certificate Download (Feature 2) */}
             <AnimatePresence>
               {verdictRevealed && (
                 <motion.div

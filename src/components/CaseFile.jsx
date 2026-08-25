@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Clock, ShieldCheck, Heart, Sparkles } from 'lucide-react';
 import styles from './CaseFile.module.css';
 
 const evidenceItems = [
@@ -25,31 +26,32 @@ const evidenceItems = [
   },
 ];
 
-function TypedText({ text, delay = 0, speed = 40 }) {
-  const [displayed, setDisplayed] = useState('');
-  const [started, setStarted] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setStarted(true), delay);
-    return () => clearTimeout(timer);
-  }, [delay]);
-
-  useEffect(() => {
-    if (!started) return;
-    let i = 0;
-    const interval = setInterval(() => {
-      if (i < text.length) {
-        setDisplayed(text.slice(0, i + 1));
-        i++;
-      } else {
-        clearInterval(interval);
-      }
-    }, speed);
-    return () => clearInterval(interval);
-  }, [started, text, speed]);
-
-  return <span>{displayed}{started && displayed.length < text.length ? <span className={styles.cursor}>|</span> : null}</span>;
-}
+const METRICS = [
+  {
+    icon: Clock,
+    value: '৮,৭৬০+ দিন',
+    label: 'পৃথিবীতে সফল বিচরণের মেয়াদ',
+    tag: 'ACTIVE',
+  },
+  {
+    icon: ShieldCheck,
+    value: '১০০%',
+    label: 'সততা ও মানবিকতার স্কোর',
+    tag: 'VERIFIED',
+  },
+  {
+    icon: Sparkles,
+    value: 'অসীম (∞)',
+    label: 'Awesome ও রাজকীয় ভাইব',
+    tag: 'MAXIMUM',
+  },
+  {
+    icon: Heart,
+    value: 'লাখো+',
+    label: 'মানুষের মুখে ফোটানো হাসি',
+    tag: 'UNLIMITED',
+  },
+];
 
 export default function CaseFile() {
   const caseNumberRef = useRef(null);
@@ -116,7 +118,7 @@ export default function CaseFile() {
           <div className={styles.separator} />
           <div className={styles.detailRow}>
             <span className={styles.detailLabel}>CHARGE</span>
-            <span className={styles.detailValue}>Being Extremely Awesome</span>
+            <span className={styles.detailValue}>অতিরিক্ত অসাধারণ হওয়া (Being Extremely Awesome)</span>
           </div>
           <div className={styles.separator} />
           <div className={styles.detailRow}>
@@ -139,6 +141,31 @@ export default function CaseFile() {
           <p className={styles.easterTitle}>ACCESS GRANTED.</p>
           <p className={styles.easterText}>You found a secret.</p>
         </motion.div>
+
+        {/* Feature 3: Life Stats / Investigation Metrics Grid */}
+        <div className={styles.metricsGrid}>
+          {METRICS.map((m, idx) => {
+            const Icon = m.icon;
+            return (
+              <motion.div
+                key={m.label}
+                className={`glass-card ${styles.metricCard}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * idx }}
+                whileHover={{ y: -3 }}
+              >
+                <div className={styles.metricHeader}>
+                  <Icon size={18} className={styles.metricIcon} />
+                  <span className={styles.metricTag}>{m.tag}</span>
+                </div>
+                <p className={styles.metricValue}>{m.value}</p>
+                <p className={styles.metricLabel}>{m.label}</p>
+              </motion.div>
+            );
+          })}
+        </div>
 
         {/* Evidence heading */}
         <motion.div

@@ -1,18 +1,27 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Scale } from 'lucide-react';
+import { Scale, Gavel } from 'lucide-react';
 import styles from './Courtroom.module.css';
 
-export default function Courtroom({ onVerdictAccepted }) {
+export default function Courtroom({ onVerdictAccepted, playGavelStrike, playTripleGavel }) {
   const [objectionShown, setObjectionShown] = useState(false);
+  const [isShaking, setIsShaking] = useState(false);
 
   const handleNotGuilty = () => {
+    if (playGavelStrike) playGavelStrike(0, false);
     setObjectionShown(true);
     setTimeout(() => setObjectionShown(false), 3500);
   };
 
+  const handleAccept = () => {
+    if (playTripleGavel) playTripleGavel();
+    setIsShaking(true);
+    setTimeout(() => setIsShaking(false), 1200);
+    onVerdictAccepted();
+  };
+
   return (
-    <section className={`section ${styles.courtroomSection}`} id="court">
+    <section className={`section ${styles.courtroomSection} ${isShaking ? styles.screenShake : ''}`} id="court">
       <div className="container">
         {/* Atmospheric top line */}
         <motion.div
@@ -96,11 +105,12 @@ export default function Courtroom({ onVerdictAccepted }) {
               [ NOT GUILTY ]
             </button>
             <button
-              className="btn-gold"
-              onClick={onVerdictAccepted}
+              className={`btn-gold ${styles.verdictActionBtn}`}
+              onClick={handleAccept}
               aria-label="Accept the verdict"
             >
-              [ ACCEPT THE VERDICT ]
+              <Gavel size={18} />
+              <span>[ ACCEPT THE VERDICT ]</span>
             </button>
           </div>
         </motion.div>
