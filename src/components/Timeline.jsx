@@ -1,41 +1,40 @@
 import { motion } from 'framer-motion';
-import { FileText } from 'lucide-react';
 import styles from './Timeline.module.css';
 
 const VERSIONS = [
   {
-    version: 'FILING NO. 001',
-    year: 'Year One',
-    title: 'Case Initiated',
-    desc: 'Defendant Salman Prince enters the world. Initial registration complete. All vital statistics filed with the appropriate authorities.',
+    version: 'নথি নং ০১',
+    year: 'আগস্ট ২০০৫',
+    title: 'পৃথিবীতে শুভ আগমন',
+    desc: 'সালমান প্রিন্সের শুভ জন্ম। পৃথিবীতে একজন অসাধারণ মানুষের পদার্পণ ও জীবনের প্রথম অধ্যায়ের সূচনা।',
     tag: 'FILED',
   },
   {
-    version: 'FILING NO. 002',
-    year: 'Early Years',
-    title: 'Character Development',
-    desc: 'Counsel notes significant growth in defendant\'s personality. Evidence of curiosity, charm, and stubbornness — all filed as character exhibits.',
+    version: 'নথি নং ০২',
+    year: 'শৈশব ও প্রারম্ভ',
+    title: 'মায়া ও ব্যক্তিত্বের বিকাশ',
+    desc: 'শৈশব থেকেই অফুরন্ত কৌতূহল, হাসিখুশি স্বভাব ও সবাইকে আপন করে নেওয়ার অদ্ভুত ক্ষমতার প্রকাশ।',
     tag: 'IN PROGRESS',
   },
   {
-    version: 'FILING NO. 003',
-    year: 'Formative Period',
-    title: 'Experiences Logged',
-    desc: 'Defendant accumulates significant life experience. The court records note an expanding social circle and increasingly refined judgment.',
+    version: 'নথি নং ০৩',
+    year: 'শিক্ষাজীবন',
+    title: 'অভিজ্ঞতা ও মেধার বিস্তার',
+    desc: 'ধীরে ধীরে মেধা ও প্রজ্ঞার বিকাশ। জীবনে নানা অভিজ্ঞতা সঞ্চয় এবং নিজের ব্যক্তিত্বকে প্রতিনিয়ত উন্নত করা।',
     tag: 'ON RECORD',
   },
   {
-    version: 'FILING NO. 004',
-    year: 'Law School',
-    title: 'Pursuing Justice',
-    desc: 'Defendant enrolls in Law. The court predicts this individual will one day stand on the other side of the bench — as Counsel.',
+    version: 'নথি নং ০৪',
+    year: 'আইন অনুষদ',
+    title: 'ন্যায়বিচারের পথে পদযাত্রা',
+    desc: 'আইনের ছাত্র হিসেবে পথচলা শুরু। সততা, যুক্তি ও ন্যায়পরায়ণতার মাধ্যমে ভবিষ্যতে আইন অঙ্গনে উজ্জ্বল স্বাক্ষরের প্রস্তুতি।',
     tag: 'ACTIVE',
   },
   {
-    version: 'FILING NO. 005',
-    year: '2026',
-    title: 'Another Year Stronger',
-    desc: 'Current filing. The defendant has grown wiser, stronger, and significantly more awesome than all previous filings combined. Status: LEGENDARY.',
+    version: 'নথি নং ০৫',
+    year: '২০২৬ (বর্তমান)',
+    title: '২১তম বর্ষপূর্তি — অপ্রতিরোধ্য যাত্রা',
+    desc: 'আজকের এই বিশেষ ক্ষণে আরও জ্ঞানী, শক্তিশালী, ধৈর্যশীল ও আপন মহিমায় ভাস্বর। শুভ জন্মদিন, সালমান প্রিন্স!',
     tag: 'CURRENT',
     current: true,
   },
@@ -52,7 +51,7 @@ export default function Timeline() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          CASE DOCKET HISTORY
+          জীবন পরিক্রমা ও আইনি রেকর্ড
         </motion.p>
 
         <motion.h2
@@ -62,9 +61,9 @@ export default function Timeline() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Salman Prince
+          সালমান প্রিন্স
           <br />
-          <span className={styles.headingSub}>Court Filings & Record</span>
+          <span className={styles.headingSub}>২১ বছরের গৌরবময় স্মৃতিনথি</span>
         </motion.h2>
 
         <div className={styles.timeline}>

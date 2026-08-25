@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Gavel, Stamp } from 'lucide-react';
+import { Gavel } from 'lucide-react';
 import styles from './CourtJudgment.module.css';
 
 export default function CourtJudgment() {
@@ -13,7 +13,7 @@ export default function CourtJudgment() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          OFFICIAL COURT DOCUMENT
+          মাননীয় আদালতের রায় ও ডিক্রি
         </motion.p>
 
         <motion.h2
@@ -23,7 +23,7 @@ export default function CourtJudgment() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          The Judgment
+          রায়নামা ও আইনি আদেশ
         </motion.h2>
 
         <motion.div
@@ -39,17 +39,17 @@ export default function CourtJudgment() {
               <Gavel size={28} strokeWidth={1.2} />
             </div>
             <div className={styles.courtInfo}>
-              <p className={styles.courtTitle}>HIGH COURT OF AWESOME</p>
-              <p className={styles.courtSub}>Birthday Division — Special Session 2026</p>
+              <p className={styles.courtTitle}>হাই কোর্ট অফ ব্রাদারহুড অ্যান্ড লাভ</p>
+              <p className={styles.courtSub}>স্পেশাল বার্থডে জুরিসডিকশন • কেস নং: BDAY-2005-2026-SP</p>
             </div>
           </div>
 
           <div className={styles.docDivider} />
 
           <p className={styles.caseRef}>
-            IN THE MATTER OF: <span className={styles.caseRefGold}>THE PEOPLE VS. SALMAN PRINCE</span>
+            মামলার বিবরণ: <span className={styles.caseRefGold}>জনগণ বনাম সালমান প্রিন্স (আগস্ট ২০০৫ — ২০২৬)</span>
             <br />
-            CASE NO: <span className={styles.caseRefGold}>BDAY-2026-SP</span>
+            বিষয়: <span className={styles.caseRefGold}>২১তম বর্ষপূর্তি ও আজীবন লেজেন্ড ঘোষণা</span>
           </p>
 
           <div className={styles.docDivider} />
@@ -57,32 +57,30 @@ export default function CourtJudgment() {
           {/* Judgment body */}
           <div className={styles.judgmentBody}>
             <p className={styles.judgmentPara}>
-              This Court, having duly considered all evidence, testimonies, and
-              relevant case materials, and having deliberated at length on the
-              exceptional conduct of the defendant,
+              এই আদালত উপস্থাপিত যাবতীয় সাক্ষ্যপ্রমাণ, প্রত্যক্ষদর্শীদের এজাহার এবং আসামীর বিগত ২১ বছরের চরিত্র পর্যালোচনা করে সন্তুষ্টি প্রকাশপূর্বক
             </p>
 
             <p className={`${styles.judgmentPara} ${styles.judgmentCenter}`}>
-              <strong>HEREBY ORDERS AND ADJUDGES:</strong>
+              <strong>নিম্নবর্ণিত আদেশ ও ডিক্রি জারি করছে:</strong>
             </p>
 
             {/* Clauses */}
             {[
               {
-                num: 'I.',
-                text: 'That SALMAN PRINCE is a person of exceptional character, whose kindness, humor, and integrity are hereby recognized by this Court as matters of public record.',
+                num: '১.',
+                text: 'আসামী সালমান প্রিন্স আগস্ট ২০০৫-এ জন্মগ্রহণের পর থেকে অদ্যবধি একজন অতুলনীয় ব্যক্তিত্ব, অমায়িক বন্ধু ও স্নেহভাজন ছোট ভাই হিসেবে ঐতিহাসিকভাবে প্রমাণিত।',
               },
               {
-                num: 'II.',
-                text: 'That the defendant\'s Awesomeness, having been measured and found to exceed all known legal limits, shall be formally acknowledged and celebrated on this occasion.',
+                num: '২.',
+                text: 'আসামীর ভেতর বিরাজমান অপরিসীম বুদ্ধিমত্তা, সহমর্মিতা ও হাস্যরস আদালতের রেকর্ডে সরকারিভাবে নথিভুক্ত করা হলো।',
               },
               {
-                num: 'III.',
-                text: 'That this Court declares, with full legal authority, that another year of life for the defendant is cause for the highest possible celebration.',
+                num: '৩.',
+                text: 'আইনের ছাত্র হিসেবে আসামীর ভবিষ্যৎ অত্যন্ত উজ্জ্বল ও গৌরবময় হবে — এই আদালত পূর্ণ আস্থা ও বিশ্বাসের সাথে তা প্রত্যয়ন করছে।',
               },
               {
-                num: 'IV.',
-                text: 'That SALMAN PRINCE shall, from this day forward, be officially recognized as a LEGEND — a title bestowed by unanimous verdict of this Court.',
+                num: '৪.',
+                text: 'সালমান প্রিন্সকে আজকের এই ২১তম জন্মদিনে আনুষ্ঠানিকভাবে "সার্টিফাইড লেজেন্ড" খেতাবে ভূষিত করা হলো — যা চিরকাল বলবৎ থাকবে।',
               },
             ].map((clause, i) => (
               <motion.div
@@ -107,12 +105,12 @@ export default function CourtJudgment() {
               <p className={styles.stylishSig}>Ekra Islam Ohi</p>
               <div className={styles.signatureLine} />
               <p className={styles.judgeTitle}>EKRA ISLAM OHI • CHIEF JUSTICE</p>
-              <p className={styles.judgeNote}>Elder Brother & Chief Presiding Judge</p>
+              <p className={styles.judgeNote}>বড় ভাই ও প্রধান বিচারপতি • স্পেশাল বার্থডে বেঞ্চ</p>
             </div>
             <div className={styles.officialSeal}>
               <div className={styles.sealCircle}>
                 <p className={styles.sealText}>COURT</p>
-                <p className={styles.sealTextSub}>SEAL</p>
+                <p className={styles.sealTextSub}>SEAL ⚖️</p>
               </div>
             </div>
           </div>
@@ -125,7 +123,7 @@ export default function CourtJudgment() {
             viewport={{ once: true }}
             transition={{ delay: 1.0, duration: 0.5, ease: 'easeOut' }}
           >
-            APPROVED
+            অনুমোদিত • APPROVED
           </motion.div>
         </motion.div>
       </div>

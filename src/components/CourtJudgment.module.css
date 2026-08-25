@@ -69,18 +69,18 @@
 .courtInfo {}
 
 .courtTitle {
-  font-family: var(--font-display);
-  font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+  font-family: var(--font-bangla);
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   color: var(--color-gold);
 }
 
 .courtSub {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
+  font-family: var(--font-bangla-body);
+  font-size: 0.72rem;
   color: var(--color-text-muted);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   margin-top: 2px;
 }
 
@@ -91,11 +91,10 @@
 }
 
 .caseRef {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-family: var(--font-bangla-body);
+  font-size: 0.85rem;
   color: var(--color-text-muted);
-  letter-spacing: 0.08em;
-  line-height: 1.8;
+  line-height: 1.9;
 }
 
 .caseRefGold {
@@ -108,12 +107,12 @@
 }
 
 .judgmentPara {
-  font-family: var(--font-display);
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
-  line-height: 1.85;
+  font-family: var(--font-bangla-body);
+  font-size: clamp(0.95rem, 2.5vw, 1.08rem);
+  line-height: 2.1;
   color: var(--color-text-secondary);
   margin-bottom: 16px;
-  font-style: italic;
+  font-style: normal;
 }
 
 .judgmentCenter {
@@ -121,9 +120,9 @@
   color: var(--color-text-primary);
   font-style: normal;
   font-weight: 700;
-  letter-spacing: 0.08em;
-  font-size: clamp(0.75rem, 2vw, 0.88rem);
-  font-family: var(--font-mono);
+  letter-spacing: 0.05em;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+  font-family: var(--font-bangla-body);
   margin: 20px 0;
 }
 
@@ -138,8 +137,8 @@
 }
 
 .clauseNum {
-  font-family: var(--font-display);
-  font-size: 1rem;
+  font-family: var(--font-bangla);
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-gold);
   min-width: 28px;
@@ -148,11 +147,11 @@
 }
 
 .clauseText {
-  font-family: var(--font-display);
-  font-size: clamp(0.88rem, 2.5vw, 0.98rem);
-  line-height: 1.75;
+  font-family: var(--font-bangla-body);
+  font-size: clamp(0.92rem, 2.5vw, 1.05rem);
+  line-height: 2;
   color: var(--color-text-secondary);
-  font-style: italic;
+  font-style: normal;
 }
 
 /* Footer */

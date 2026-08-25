@@ -10,29 +10,29 @@ function fireConfetti() {
 
   // Main burst
   confetti({
-    particleCount: 130,
-    spread: 85,
+    particleCount: 140,
+    spread: 90,
     origin: { y: 0.5, x: 0.5 },
     colors,
     startVelocity: 42,
-    scalar: 1.1,
+    scalar: 1.15,
     zIndex: 9999,
   });
 
   // Side bursts
   setTimeout(() => {
     confetti({
-      particleCount: 70,
+      particleCount: 75,
       angle: 60,
-      spread: 60,
+      spread: 65,
       origin: { x: 0, y: 0.6 },
       colors,
       zIndex: 9999,
     });
     confetti({
-      particleCount: 70,
+      particleCount: 75,
       angle: 120,
-      spread: 60,
+      spread: 65,
       origin: { x: 1, y: 0.6 },
       colors,
       zIndex: 9999,
@@ -42,8 +42,8 @@ function fireConfetti() {
   // Final sprinkle
   setTimeout(() => {
     confetti({
-      particleCount: 60,
-      spread: 100,
+      particleCount: 65,
+      spread: 110,
       origin: { y: 0.4 },
       colors,
       scalar: 0.85,
@@ -65,7 +65,7 @@ export default function Verdict() {
 
   const handleWhatsAppShare = () => {
     const text = encodeURIComponent(
-      '⚖️ ব্রেকিং নিউজ: হাই কোর্টের চূড়ান্ত রায়ে সালমান প্রিন্স (Salman Prince) "অতিরিক্ত অসাধারণ হওয়ার" অপরাধে দোষী সাব্যস্ত হয়েছে! 👑🎂\n\nআদালতের সম্পূর্ণ কেস ফাইল ও রায় দেখতে ক্লিক করুন:'
+      '⚖️ ব্রেকিং নিউজ: মাননীয় হাই কোর্টের চূড়ান্ত রায়ে সালমান প্রিন্স (Salman Prince) "অতিরিক্ত অসাধারণ ও প্রিয় ছোট ভাই হওয়ার" অপরাধে দোষী সাব্যস্ত হয়েছে! 👑🎂\n\nআদালতের সম্পূর্ণ কেস ফাইল, রায় ও সার্টিফিকেট দেখতে ক্লিক করুন:'
     );
     const url = encodeURIComponent(window.location.href);
     window.open(`https://api.whatsapp.com/send?text=${text}%20${url}`, '_blank');
@@ -109,12 +109,12 @@ export default function Verdict() {
 
             {/* Label */}
             <motion.p variants={itemVariants} className={styles.labelText}>
-              FINAL VERDICT
+              মাননীয় আদালতের চূড়ান্ত রায়
             </motion.p>
 
             {/* Defendant */}
             <motion.p variants={itemVariants} className={styles.defendantName}>
-              SALMAN PRINCE
+              সালমান প্রিন্স
             </motion.p>
 
             {/* Guilty */}
@@ -123,15 +123,15 @@ export default function Verdict() {
               className={styles.guiltyWrapper}
             >
               <div className={styles.guiltyGlow} aria-hidden="true" />
-              <p className={styles.guilty}>GUILTY</p>
+              <p className={styles.guilty}>দোষী</p>
             </motion.div>
 
             {/* Of being awesome */}
             <motion.p variants={itemVariants} className={styles.ofText}>
-              OF BEING
+              GUILTY OF BEING
             </motion.p>
             <motion.p variants={itemVariants} className={styles.awesomeText}>
-              AWESOME
+              EXTREMELY AWESOME
             </motion.p>
 
             {/* Stamp */}
@@ -139,7 +139,7 @@ export default function Verdict() {
               variants={{ hidden: { opacity: 0, scale: 1.5, rotate: -15 }, visible: { opacity: 1, scale: 1, rotate: -12, transition: { delay: 1.2, duration: 0.5, ease: 'easeOut' } } }}
               className={styles.verdictStamp}
             >
-              GUILTY
+              GUILTY • দোষী
             </motion.div>
 
             {/* Bottom rule */}
@@ -147,7 +147,7 @@ export default function Verdict() {
 
             {/* Signed */}
             <motion.p variants={itemVariants} className={styles.signed}>
-              So ordered by the High Court — {new Date().getFullYear()}
+              আদালতের আদেশক্রমে সর্বসম্মতিক্রমে অনুমোদিত — ২০২৬
             </motion.p>
 
             {/* Action Buttons */}
@@ -168,7 +168,7 @@ export default function Verdict() {
                 onClick={handleWhatsAppShare}
               >
                 <Share2 size={16} />
-                <span>[ WhatsApp-এ রায় শেয়ার করো ]</span>
+                <span>[ WhatsApp-এ রায় শেয়ার করো 💬 ]</span>
               </button>
             </motion.div>
           </motion.div>

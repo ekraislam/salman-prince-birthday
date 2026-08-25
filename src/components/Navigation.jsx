@@ -4,11 +4,11 @@ import { Volume2, VolumeX } from 'lucide-react';
 import styles from './Navigation.module.css';
 
 const SECTIONS = [
-  { id: 'case', label: 'CASE' },
-  { id: 'evidence', label: 'EVIDENCE' },
-  { id: 'court', label: 'COURT' },
-  { id: 'verdict', label: 'VERDICT' },
-  { id: 'birthday', label: 'MESSAGE' },
+  { id: 'case', label: 'কেস ফাইল' },
+  { id: 'evidence', label: 'সাক্ষ্যপ্রমাণ' },
+  { id: 'court', label: 'কোর্টরুম' },
+  { id: 'verdict', label: 'চূড়ান্ত রায়' },
+  { id: 'birthday', label: 'শুভেচ্ছা' },
 ];
 
 export default function Navigation({ soundEnabled, onToggleSound }) {

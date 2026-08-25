@@ -58,9 +58,9 @@
 }
 
 .navLabel {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  letter-spacing: 0.15em;
+  font-family: var(--font-bangla-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
   font-weight: 600;
   white-space: nowrap;
 }

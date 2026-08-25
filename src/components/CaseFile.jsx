@@ -1,42 +1,48 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Clock, ShieldCheck, Heart, Sparkles } from 'lucide-react';
+import { Clock, ShieldCheck, Heart, Sparkles, Calendar } from 'lucide-react';
 import styles from './CaseFile.module.css';
 
 const evidenceItems = [
   {
-    id: '01',
-    title: 'Exhibit A — ব্যক্তিত্ব মূল্যায়ন',
-    text: 'যেখানেই যায়, মানুষের মুখে হাসি ফোটায়। কোনো পার্শ্বপ্রতিক্রিয়া জানা যায়নি।',
+    id: '০১',
+    title: 'প্রমাণপত্র ১ — ব্যক্তিত্বের মূল্যায়ন',
+    text: 'যেখানেই উপস্থিত হয়, চারপাশের মানুষের মুখে হাসি ফোটে। কোনো পার্শ্বপ্রতিক্রিয়া জানা যায়নি।',
   },
   {
-    id: '02',
-    title: 'Exhibit B — বার্ষিক রেকর্ড',
-    text: 'সফলভাবে আরও একটি বছর পার করেছে। কোর্টের রেকর্ড অনুযায়ী — অত্যন্ত চমৎকার পারফরম্যান্স।',
+    id: '০২',
+    title: 'প্রমাণপত্র ২ — ২১ বছরের গৌরবময় রেকর্ড',
+    text: 'আগস্ট ২০০৫ থেকে আজ পর্যন্ত সফলভাবে ২১টি বছর পার করেছে। আদালতের নথিতে পারফরম্যান্স — অসাধারণ।',
   },
   {
-    id: '03',
-    title: 'Exhibit C — স্ব-প্রতিবেদন',
-    text: 'নিজে নিজেই অসাধারণ হওয়ার অদ্ভুত ক্ষমতা রাখে। কোনো পূর্ববর্তী অপরাধ নেই।',
+    id: '০৩',
+    title: 'প্রমাণপত্র ৩ — ভবিষ্যৎ আইনজ্ঞের চরিত্র',
+    text: 'আইনের ছাত্র হিসেবে ন্যায়পরায়ণতা, মেধা ও নিজে নিজেই অসাধারণ হওয়ার অদ্ভুত গুণাবলির অধিকারী।',
   },
   {
-    id: '04',
-    title: 'Exhibit D — প্রত্যক্ষদর্শী বিবৃতি',
-    text: 'সম্ভবত এই পৃথিবীর জন্য একটু বেশিই awesome। তদন্ত এখনও চলছে।',
+    id: '০৪',
+    title: 'প্রমাণপত্র ৪ — প্রত্যক্ষদর্শী সাক্ষীদের এজাহার',
+    text: 'প্রত্যক্ষদর্শীদের দাবি: এই পৃথিবীর স্বাভাবিক নিয়মের চেয়েও সে বহুগুণ বেশি ভালো ও পরোপকারী।',
   },
 ];
 
 const METRICS = [
   {
+    icon: Calendar,
+    value: 'আগস্ট ২০০৫',
+    label: 'জন্মতারিখ (২১তম বর্ষপূর্তি)',
+    tag: 'MILESTONE',
+  },
+  {
     icon: Clock,
-    value: '৮,৭৬০+ দিন',
+    value: '৭,৬৭০+ দিন',
     label: 'পৃথিবীতে সফল বিচরণের মেয়াদ',
     tag: 'ACTIVE',
   },
   {
     icon: ShieldCheck,
     value: '১০০%',
-    label: 'সততা ও মানবিকতার স্কোর',
+    label: 'সততা ও নৈতিকতার স্কোর',
     tag: 'VERIFIED',
   },
   {
@@ -44,12 +50,6 @@ const METRICS = [
     value: 'অসীম (∞)',
     label: 'Awesome ও রাজকীয় ভাইব',
     tag: 'MAXIMUM',
-  },
-  {
-    icon: Heart,
-    value: 'লাখো+',
-    label: 'মানুষের মুখে ফোটানো হাসি',
-    tag: 'UNLIMITED',
   },
 ];
 
@@ -73,7 +73,7 @@ export default function CaseFile() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          CLASSIFIED DOCUMENT
+          গোপনীয় আইনি নথি
         </motion.p>
 
         {/* Case File Header */}
@@ -84,7 +84,7 @@ export default function CaseFile() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          <h1 className={styles.title}>CASE FILE</h1>
+          <h1 className={styles.title}>অফিসিয়াল কেস ফাইল</h1>
           <div className="divider-full" />
         </motion.div>
 
@@ -97,7 +97,7 @@ export default function CaseFile() {
           transition={{ duration: 0.7, delay: 0.2 }}
         >
           <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>CASE NUMBER</span>
+            <span className={styles.detailLabel}>কেস নম্বর</span>
             <span
               className={`${styles.detailValue} ${styles.caseNum}`}
               ref={caseNumberRef}
@@ -105,27 +105,40 @@ export default function CaseFile() {
               role="button"
               tabIndex={0}
               onKeyDown={e => e.key === 'Enter' && handleCaseNumberClick()}
-              aria-label="Click to find a secret"
+              aria-label="গোপন তথ্য দেখতে ক্লিক করো"
             >
-              BDAY-2026-SP
+              BDAY-2005-2026-SP
             </span>
           </div>
+
           <div className={styles.separator} />
+
           <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>DEFENDANT</span>
-            <span className={`${styles.detailValue} ${styles.defendant}`}>SALMAN PRINCE</span>
+            <span className={styles.detailLabel}>আসামী / DEFENDANT</span>
+            <span className={`${styles.detailValue} ${styles.defendant}`}>সালমান প্রিন্স</span>
           </div>
+
           <div className={styles.separator} />
+
           <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>CHARGE</span>
-            <span className={styles.detailValue}>অতিরিক্ত অসাধারণ হওয়া (Being Extremely Awesome)</span>
+            <span className={styles.detailLabel}>জন্মতারিখ ও বয়স</span>
+            <span className={styles.detailValue}>আগস্ট ২০০৫ • ২১ বছর পূর্ণ 🎂</span>
           </div>
+
           <div className={styles.separator} />
+
           <div className={styles.detailRow}>
-            <span className={styles.detailLabel}>STATUS</span>
+            <span className={styles.detailLabel}>প্রধান অভিযোগ</span>
+            <span className={styles.detailValue}>অতিরিক্ত অসাধারণ ও প্রিয় ছোট ভাই হওয়া</span>
+          </div>
+
+          <div className={styles.separator} />
+
+          <div className={styles.detailRow}>
+            <span className={styles.detailLabel}>আইনি অবস্থা</span>
             <span className={styles.status}>
               <span className={styles.statusDot} />
-              UNDER INVESTIGATION
+              তদন্ত সম্পন্ন • দোষী সাব্যস্ত
             </span>
           </div>
         </motion.div>
@@ -138,11 +151,11 @@ export default function CaseFile() {
           transition={{ duration: 0.3 }}
           aria-live="polite"
         >
-          <p className={styles.easterTitle}>ACCESS GRANTED.</p>
-          <p className={styles.easterText}>You found a secret.</p>
+          <p className={styles.easterTitle}>ACCESS GRANTED 👑</p>
+          <p className={styles.easterText}>সালমান প্রিন্স — ২১ বছরের অপ্রতিরোধ্য যাত্রা!</p>
         </motion.div>
 
-        {/* Feature 3: Life Stats / Investigation Metrics Grid */}
+        {/* Life Stats / Investigation Metrics Grid */}
         <div className={styles.metricsGrid}>
           {METRICS.map((m, idx) => {
             const Icon = m.icon;
@@ -176,7 +189,7 @@ export default function CaseFile() {
           transition={{ duration: 0.6, delay: 0.1 }}
         >
           <div className="divider-full" />
-          <p className={styles.evidenceTitle}>EVIDENCE FOUND</p>
+          <p className={styles.evidenceTitle}>আদালতে দাখিলকৃত প্রমাণাদি</p>
           <div className="divider-full" />
         </motion.div>
 
@@ -193,11 +206,11 @@ export default function CaseFile() {
               whileHover={{ y: -4 }}
             >
               <div className={styles.evidenceNum}>
-                <span>Evidence #{item.id}</span>
+                <span>প্রমাণ #{item.id}</span>
               </div>
               <h3 className={styles.evidenceCardTitle}>{item.title}</h3>
               <p className={styles.evidenceCardText}>{item.text}</p>
-              <div className={styles.evidenceStamp}>FILED</div>
+              <div className={styles.evidenceStamp}>দাখিলকৃত</div>
             </motion.div>
           ))}
         </div>

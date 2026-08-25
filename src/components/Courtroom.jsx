@@ -39,7 +39,7 @@ export default function Courtroom({ onVerdictAccepted, playGavelStrike, playTrip
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.5 }}
           >
-            THE COURT IS NOW IN SESSION
+            আদালতের কার্যক্রম শুরু হলো ⚖️
           </motion.p>
           <div className={styles.sessionLine} />
         </motion.div>
@@ -52,9 +52,8 @@ export default function Courtroom({ onVerdictAccepted, playGavelStrike, playTrip
           viewport={{ once: true }}
           transition={{ duration: 0.7, delay: 0.4 }}
         >
-          <p className={styles.thePeople}>THE PEOPLE</p>
-          <p className={styles.vs}>VS.</p>
-          <p className={styles.defendant}>SALMAN PRINCE</p>
+          <p className={styles.thePeople}>গণপ্রজাতন্ত্রী আদালত বনাম</p>
+          <p className={styles.defendant}>সালমান প্রিন্স</p>
         </motion.div>
 
         {/* Scale of Justice */}
@@ -79,10 +78,10 @@ export default function Courtroom({ onVerdictAccepted, playGavelStrike, playTrip
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
         >
-          <p className={styles.chargeLabel}>FORMAL CHARGE</p>
-          <p className={styles.chargeText}>Being Too Awesome</p>
+          <p className={styles.chargeLabel}>আনুষ্ঠানিক অভিযোগনামা</p>
+          <p className={styles.chargeText}>অতিরিক্ত অসাধারণ ও প্রিয় ছোট ভাই হওয়া</p>
           <p className={styles.chargeNote}>
-            Contrary to all reasonable expectations, the defendant has consistently exceeded the established limits of human awesomeness.
+            সকল সাধারণ নিয়ম ও সীমাবদ্ধতা উপেক্ষা করে আসামী আগস্ট ২০০৫ থেকে দীর্ঘ ২১ বছর ধরে পৃথিবীতে অফুরন্ত হাসি, সততা ও অসাধারণত্ব ছড়িয়ে যাচ্ছেন।
           </p>
         </motion.div>
 
@@ -94,23 +93,23 @@ export default function Courtroom({ onVerdictAccepted, playGavelStrike, playTrip
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 1.0 }}
         >
-          <p className={styles.buttonsLabel}>HOW DO YOU FIND THE DEFENDANT?</p>
+          <p className={styles.buttonsLabel}>আদালতের কাছে আসামীর কী রায় দেবেন?</p>
 
           <div className={styles.buttons}>
             <button
               className="btn-ghost"
               onClick={handleNotGuilty}
-              aria-label="Plead not guilty"
+              aria-label="নির্দোষ আবেদন"
             >
-              [ NOT GUILTY ]
+              [ নির্দোষ / NOT GUILTY ]
             </button>
             <button
               className={`btn-gold ${styles.verdictActionBtn}`}
               onClick={handleAccept}
-              aria-label="Accept the verdict"
+              aria-label="আদালতের রায় গ্রহণ করুন"
             >
               <Gavel size={18} />
-              <span>[ ACCEPT THE VERDICT ]</span>
+              <span>[ আদালতের রায় গ্রহণ করুন ⚖️ ]</span>
             </button>
           </div>
         </motion.div>
@@ -127,9 +126,9 @@ export default function Courtroom({ onVerdictAccepted, playGavelStrike, playTrip
               role="alert"
               aria-live="assertive"
             >
-              <p className={styles.objectionTitle}>Objection Overruled. 😌</p>
-              <p className={styles.objectionText}>The evidence is overwhelming.</p>
-              <p className={styles.objectionSub}>Please proceed to the verdict.</p>
+              <p className={styles.objectionTitle}>আপত্তি খারিজ! 😌</p>
+              <p className={styles.objectionText}>সাক্ষ্যপ্রমাণ এতটাই অপ্রতিরোধ্য যে আসামীকে নির্দোষ ভাবার কোনো সুযোগ নেই।</p>
+              <p className={styles.objectionSub}>অনুগ্রহ করে চূড়ান্ত রায় উন্মোচন করুন।</p>
             </motion.div>
           )}
         </AnimatePresence>

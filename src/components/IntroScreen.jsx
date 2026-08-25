@@ -31,7 +31,7 @@ export default function IntroScreen({ onEnter, playGavelStrike }) {
               animate={{ opacity: 1, scale: 1, rotate: -8 }}
               transition={{ delay: 0.3, duration: 0.6, ease: 'easeOut' }}
             >
-              CONFIDENTIAL
+              গোপনীয় নথি
             </motion.div>
 
             {/* Case number */}
@@ -41,7 +41,7 @@ export default function IntroScreen({ onEnter, playGavelStrike }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.5 }}
             >
-              CONFIDENTIAL CASE FILE
+              স্পেশাল বার্থডে কেস ফাইল
             </motion.p>
 
             <motion.p
@@ -50,7 +50,7 @@ export default function IntroScreen({ onEnter, playGavelStrike }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.0, duration: 0.5 }}
             >
-              CASE NO. BDAY-2026-SP
+              CASE NO. BDAY-2005-2026-SP
             </motion.p>
 
             <motion.div
@@ -67,9 +67,8 @@ export default function IntroScreen({ onEnter, playGavelStrike }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.6, duration: 0.7 }}
             >
-              <p className={styles.thePeople}>THE PEOPLE</p>
-              <p className={styles.vs}>VS.</p>
-              <p className={styles.defendant}>SALMAN PRINCE</p>
+              <p className={styles.thePeople}>গণপ্রজাতন্ত্রী আদালত বনাম</p>
+              <p className={styles.defendant}>সালমান প্রিন্স</p>
             </motion.div>
 
             <motion.div
@@ -85,7 +84,7 @@ export default function IntroScreen({ onEnter, playGavelStrike }) {
               animate={{ opacity: 1 }}
               transition={{ delay: 2.6, duration: 0.6 }}
             >
-              A Very Serious Investigation
+              একটি অত্যন্ত গম্ভীর ও গোপনীয় তদন্ত
             </motion.p>
 
             {/* CTA Button */}
@@ -97,9 +96,9 @@ export default function IntroScreen({ onEnter, playGavelStrike }) {
               transition={{ delay: 3.0, duration: 0.6 }}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              aria-label="Open the birthday case file"
+              aria-label="কেস ফাইল খুলুন"
             >
-              <span style={{ position: 'relative', zIndex: 1 }}>[ OPEN CASE FILE ]</span>
+              <span style={{ position: 'relative', zIndex: 1 }}>[ কেস ফাইল খুলুন 📂 ]</span>
             </motion.button>
 
             {/* Classification bar */}
@@ -110,7 +109,7 @@ export default function IntroScreen({ onEnter, playGavelStrike }) {
               transition={{ delay: 3.4, duration: 0.5 }}
             >
               <span className={styles.classLine} />
-              <span className={styles.classText}>TOP SECRET — BIRTHDAY DIVISION</span>
+              <span className={styles.classText}>টপ সিক্রেট — স্পেশাল বার্থডে ডিভিশন</span>
               <span className={styles.classLine} />
             </motion.div>
           </div>
