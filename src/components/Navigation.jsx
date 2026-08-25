@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Volume2, VolumeX } from 'lucide-react';
 import styles from './Navigation.module.css';
 
 const SECTIONS = [
@@ -11,7 +10,7 @@ const SECTIONS = [
   { id: 'birthday', label: 'শুভেচ্ছা' },
 ];
 
-export default function Navigation({ soundEnabled, onToggleSound }) {
+export default function Navigation() {
   const [active, setActive] = useState('case');
   const [visible, setVisible] = useState(false);
 
@@ -32,7 +31,6 @@ export default function Navigation({ soundEnabled, onToggleSound }) {
       if (el) observer.observe(el);
     });
 
-    // Show nav after scrolling a bit
     const handleScroll = () => {
       setVisible(window.scrollY > 100);
     };
@@ -76,20 +74,6 @@ export default function Navigation({ soundEnabled, onToggleSound }) {
                 </button>
               ))}
             </div>
-
-            {/* Sound toggle */}
-            <button
-              className={styles.soundBtn}
-              onClick={onToggleSound}
-              aria-label={soundEnabled ? 'Disable sound' : 'Enable sound'}
-              title={soundEnabled ? 'Sound ON' : 'Sound OFF'}
-            >
-              {soundEnabled ? (
-                <Volume2 size={14} strokeWidth={1.5} />
-              ) : (
-                <VolumeX size={14} strokeWidth={1.5} />
-              )}
-            </button>
           </div>
         </motion.nav>
       )}

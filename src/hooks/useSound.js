@@ -1,10 +1,7 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useRef, useCallback } from 'react';
 
 export function useSound() {
-  const [enabled, setEnabled] = useState(false);
   const audioContextRef = useRef(null);
-  const oscillatorsRef = useRef([]);
-  const gainRef = useRef(null);
 
   // Initialize or get AudioContext
   const getAudioContext = useCallback(() => {
@@ -20,7 +17,7 @@ export function useSound() {
     return audioContextRef.current;
   }, []);
 
-  // Wooden Courtroom Gavel Strike Synthesizer using Web Audio API
+  // Realistic Wooden Courtroom Gavel Strike Synthesizer
   const playGavelStrike = useCallback((timeOffset = 0, isHeavy = false) => {
     const ctx = getAudioContext();
     if (!ctx) return;
@@ -57,7 +54,7 @@ export function useSound() {
     thudOsc.start(t);
     thudOsc.stop(t + 0.35);
 
-    // 3. Wood desk reverb body (Noise burst)
+    // 3. Wood desk body acoustics
     const bufferSize = ctx.sampleRate * 0.12;
     const noiseBuffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
     const output = noiseBuffer.getChannelData(0);
@@ -73,7 +70,7 @@ export function useSound() {
     filter.frequency.setValueAtTime(isHeavy ? 450 : 600, t);
 
     const noiseGain = ctx.createGain();
-    noiseGain.gain.setValueAtTime(isHeavy ? 0.4 : 0.25, t);
+    noiseGain.gain.setValueAtTime(isHeavy ? 0.35 : 0.2, t);
     noiseGain.gain.exponentialRampToValueAtTime(0.001, t + 0.12);
 
     whiteNoise.connect(filter);
@@ -91,82 +88,5 @@ export function useSound() {
     playGavelStrike(0.58, true);
   }, [playGavelStrike]);
 
-  // Ambient celebration background music/tones
-  const createCelebrationSound = useCallback((ctx) => {
-    const masterGain = ctx.createGain();
-    masterGain.gain.setValueAtTime(0, ctx.currentTime);
-    masterGain.gain.linearRampToValueAtTime(0.08, ctx.currentTime + 1.5);
-    masterGain.connect(ctx.destination);
-    gainRef.current = masterGain;
-
-    // Bass drone
-    const bass = ctx.createOscillator();
-    bass.type = 'sine';
-    bass.frequency.setValueAtTime(65, ctx.currentTime);
-    const bassGain = ctx.createGain();
-    bassGain.gain.value = 0.4;
-    bass.connect(bassGain);
-    bassGain.connect(masterGain);
-    bass.start();
-    oscillatorsRef.current.push(bass);
-
-    // Mid harmony
-    const mid = ctx.createOscillator();
-    mid.type = 'sine';
-    mid.frequency.setValueAtTime(195, ctx.currentTime);
-    const midGain = ctx.createGain();
-    midGain.gain.value = 0.2;
-    mid.connect(midGain);
-    midGain.connect(masterGain);
-    mid.start();
-    oscillatorsRef.current.push(mid);
-
-    // High shimmer
-    const shimmer = ctx.createOscillator();
-    shimmer.type = 'sine';
-    shimmer.frequency.setValueAtTime(520, ctx.currentTime);
-    const shimmerGain = ctx.createGain();
-    shimmerGain.gain.value = 0.08;
-    shimmer.connect(shimmerGain);
-    shimmerGain.connect(masterGain);
-
-    const lfo = ctx.createOscillator();
-    lfo.type = 'sine';
-    lfo.frequency.value = 0.4;
-    const lfoGain = ctx.createGain();
-    lfoGain.gain.value = 0.05;
-    lfo.connect(lfoGain);
-    lfoGain.connect(shimmerGain.gain);
-    lfo.start();
-    shimmer.start();
-    oscillatorsRef.current.push(shimmer, lfo);
-  }, []);
-
-  const toggleSound = useCallback(() => {
-    const ctx = getAudioContext();
-    if (!ctx) return;
-
-    if (!enabled) {
-      createCelebrationSound(ctx);
-      setEnabled(true);
-    } else {
-      if (gainRef.current) {
-        gainRef.current.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.5);
-      }
-      setEnabled(false);
-    }
-  }, [enabled, createCelebrationSound, getAudioContext]);
-
-  useEffect(() => {
-    return () => {
-      oscillatorsRef.current.forEach(osc => {
-        try { osc.stop(); } catch {}
-      });
-      if (audioContextRef.current) {
-        try { audioContextRef.current.close(); } catch {}
-      }
-    };
-  }, []);
-
-  return { enabled, toggleSound, playGavelStrike, playTripleGavel };
+  return { playGavelStrike, playTripleGavel };
 }

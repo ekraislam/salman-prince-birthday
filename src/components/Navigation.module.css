@@ -65,32 +65,7 @@
   white-space: nowrap;
 }
 
-.separator {
-  width: 1px;
-  height: 16px;
-  background: rgba(255,255,255,0.08);
-}
 
-.soundBtn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  background: none;
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 50%;
-  color: var(--color-text-muted);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-  margin-left: 4px;
-}
-
-.soundBtn:hover {
-  border-color: var(--color-gold);
-  color: var(--color-gold);
-}
 
 @media (max-width: 480px) {
   .navLabel {

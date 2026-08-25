@@ -19,7 +19,7 @@ import { useSound } from './hooks/useSound';
 export default function App() {
   const [introComplete, setIntroComplete] = useState(false);
   const [verdictRevealed, setVerdictRevealed] = useState(false);
-  const { enabled: soundEnabled, toggleSound, playGavelStrike, playTripleGavel } = useSound();
+  const { playGavelStrike, playTripleGavel } = useSound();
   const verdictRef = useRef(null);
 
   const handleIntroComplete = useCallback(() => {
@@ -61,7 +61,7 @@ export default function App() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             {/* Floating nav */}
-            <Navigation soundEnabled={soundEnabled} onToggleSound={toggleSound} />
+            <Navigation />
 
             {/* Case file + Stats metrics */}
             <CaseFile />
